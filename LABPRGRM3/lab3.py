@@ -1,18 +1,12 @@
 def dfs(src,target,limit,visited_states):
-   
     if src == target:
-        print(src)
-        print("FOUND!!")
         return True
     if limit <= 0:
-        print(src)
         return False
-   
     visited_states.append(src)
     moves = possible_moves(src,visited_states)   
     for move in moves:
         if dfs(move, target, limit-1, visited_states):
-            
             return True
     return False
 
@@ -48,26 +42,29 @@ def iddfs(src,target,depth):
         if dfs(src,target,i+1,visited_states):
             return True
     return False
+#Test 1
+src = [1,2,3,-1,4,5,6,7,8]
+target = [1,2,3,4,5,-1,6,7,8]         
 
-src = [] 
-target=[]    
-print("Enter source array ")
-for i in range(0, 9):
-    ele1 = int(input())
- 
-    src.append(ele1)
+depth = 1
+iddfs(src, target, depth)
+#Test 2
+src = [3,5,2,8,7,6,4,1,-1]
+target = [-1,3,7,8,1,5,4,6,2]
 
-print("Enter target array ")
-for i in range(0, 9):
-    ele2 = int(input())
- 
-    target.append(ele2)
+depth = 1
+iddfs(src, target, depth)
+# Test 2
+src = [1,2,3,-1,4,5,6,7,8] 
+target=[1,2,3,6,4,5,-1,7,8]
 
+depth = 1
+iddfs(src, target, depth)
 
+src = [1, 2, 3, 4, 5, 6, 7, 8, -1]
+target = [-1, 1, 2, 3, 4, 5, 6, 7, 8]
 
-depthmax = int(input("ENTER THE DEPTH: "))
-
-for i in range(1, depthmax):
+for i in range(1, 100):
     val = iddfs(src,target,i)
     print(i, val)
     if val == True:
