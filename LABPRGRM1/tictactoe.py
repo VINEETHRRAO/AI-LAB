@@ -48,17 +48,13 @@ def main():
 
     print('RESULT')
     if status == 1:
+        board()
         print('Player', player - 1, 'win')
     else:
         print('Game draw')
 
 
-###############################################
-#    FUNCTION TO RETURN GAME STATUS
-#    1 FOR GAME IS OVER WITH RESULT
-#    -1 FOR GAME IS IN PROGRESS
-#    O GAME IS OVER AND NO RESULT
-###############################################
+
 
 def game_status():
     if square[1] == square[2] and square[2] == square[3]:
@@ -84,10 +80,7 @@ def game_status():
         return -1
 
 
-###############################################
-#    FUNCTION TO DRAW BOARD
-#    OF TIC TAC TOE WITH PLAYERS MARK
-###############################################
+
 
 
 def board():
@@ -95,21 +88,13 @@ def board():
 
     print('Player 1 (X)  -  Player 2 (O)')
     print()
-
-    print('     |     |     ')
-    print(' ', square[1], ' | ', square[2], ' |  ', square[3])
-
-    print('_____|_____|_____')
-    print('     |     |     ')
-
-    print(' ', square[4], ' | ', square[5], ' |  ', square[6])
-
-    print('_____|_____|_____')
-    print('     |     |     ')
-
-    print(' ', square[7], ' | ', square[8], ' |  ', square[9])
-
-    print('     |     |     ')
+    print(
+        f"""
+{square[1]} {square[2]} {square[3]}
+{square[4]} {square[5]} {square[6]}
+{square[7]} {square[8]} {square[9]}
+        """
+    )
 
 
 main()
